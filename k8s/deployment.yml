@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mobile-shop-deployment
+  labels:
+    app: mobile-shop
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mobile-shop
+  template:
+    metadata:
+      labels:
+        app: mobile-shop
+    spec:
+      containers:
+      - name: mobile-shop-app
+        image: gauravsaini2311/mobile-shop-app:latest
+        ports:
+        - containerPort: 3000
